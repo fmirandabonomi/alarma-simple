@@ -1,5 +1,11 @@
 {
     "files.associations": {
-        "ticks_systick.h": "c"
+        "ticks_systick.h": "c",
+        "ejemplo.h": "c",
+        "stdint.h": "c",
+        "unity.h": "c",
+        "pin_gpio.h": "c",
+        "timer_systick.h": "c",
+        "stm32f1xx.h": "c"
     }
 }

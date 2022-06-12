@@ -34,7 +34,11 @@ inline static EstadoLed nuevoEstado(EstadoLed estadoActual)
 void loop(void)
 {
     static EstadoLed estado = ENCENDIDO;
-    estadoLed(estado);
-    TimerSysTick_esperaMilisegundos(500);
-    estado = nuevoEstado(estado);
+    static uint32_t ultimo_ms;
+    if (TimerSysTick_getMilisegundos() - ultimo_ms >= 500)
+    {
+        estado = nuevoEstado(estado);
+        estadoLed(estado);
+        ultimo_ms = TimerSysTick_getMilisegundos();
+    }
 }
